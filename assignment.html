@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
+  <link rel="stylesheet" href="assignment.css">
+</head>
+
+<body layout="column">
+  <md-toolbar class="md-whiteframe-1dp">
+    <div class="md-toolbar-tools">
+      <div class="md-title">Assignment</div>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Search</label>
+          <input ng-model="search">
+        </md-input-container>
+      </div>
+      <md-content laout="column" flex ng-controller="MainCtrl">
+        <md-card>
+          <md-table-container>
+            <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+              <thead md-head>
+                <tr md-row>
+                  <th md-column md-order-by="name"><a href="#"
+                      ng-click="orderByField='name'; reverseSort = !reverseSort">Text</a></th>
+                  <th md-column md-numeric md-order-by="number1"><a href="#"
+                      ng-click="orderByField='number1'; reverseSort = !reverseSort">Number1</a></th>
+                  <th md-column md-numeric md-order-by="number2"><a href="#"
+                      ng-click="orderByField='number2'; reverseSort = !reverseSort">Number2</a></th>
+                  <th md-column md-numeric md-order-by="number3"><a href="#"
+                      ng-click="orderByField='number3'; reverseSort = !reverseSort">Number3</a></th>
+                  <th md-column md-numeric md-order-by="number4"><a href="#"
+                      ng-click="orderByField='number4'; reverseSort = !reverseSort">Number4</a></th>
+                  <th md-column md-numeric md-order-by="number5"><a href="#"
+                      ng-click="orderByField='number5'; reverseSort = !reverseSort">Number5</a></th>
+                  <th md-column md-numeric md-order-by="number6"><a href="#"
+                      ng-click="orderByField='number6'; reverseSort = !reverseSort">Number6</a></th>
+                  <th md-column md-numeric md-order-by="number7"><a href="#"
+                      ng-click="orderByField='number7'; reverseSort = !reverseSort">Number7</a></th>
+                  <th md-column md-numeric md-order-by="number8"><a href="#"
+                      ng-click="orderByField='number8'; reverseSort = !reverseSort">Number8</a></th>
+                  <th md-column md-numeric md-order-by="number9"><a href="#"
+                      ng-click="orderByField='number9'; reverseSort = !reverseSort">Number9</a></th>
+                </tr>
+              </thead>
+              <tbody md-body>
+                <tr md-row ng-repeat="obj in words|filter : search|orderBy:orderByField:reverseSort">
+                  <td md-cell>{{obj.name}}</td>
+                  <td md-cell>{{obj.number1}}</td>
+                  <td md-cell>{{obj.number2}}</td>
+                  <td md-cell>{{obj.number3}}</td>
+                  <td md-cell>{{obj.number4}}</td>
+                  <td md-cell>{{obj.number5}}</td>
+                  <td md-cell>{{obj.number6}}</td>
+                  <td md-cell>{{obj.number7}}</td>
+                  <td md-cell>{{obj.number8}}</td>
+                  <td md-cell>{{obj.number9}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </md-table-container>
+        </md-card>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-aria.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.js"></script>
+        <script src="https://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js"></script>
+        <script src="assignment.js"></script>
+        </body>
+
+</html>
